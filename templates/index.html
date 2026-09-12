@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Matcher</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Resume Matcher</h1>
+    <span class="badge" id="llm-badge">LLM backend: {{ llm_backend }}</span>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Upload resumes</h2>
+      <p class="hint">PDF only. Upload {{ min_resumes }}+ at once for a meaningful ranking.</p>
+      <form id="upload-form">
+        <input type="file" id="resume-input" name="resumes" accept="application/pdf" multiple required>
+        <button type="submit">Upload &amp; process</button>
+      </form>
+      <ul id="upload-results" class="result-list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>2. Job description</h2>
+      <form id="jd-form">
+        <textarea id="jd-text" name="text" rows="8"
+          placeholder="Paste the job description here..."></textarea>
+        <button type="submit">Analyze &amp; rank candidates</button>
+      </form>
+      <div id="jd-fields" class="fields-box"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-header">
+        <h2>3. Ranked candidates</h2>
+        <button type="button" id="clear-candidates-btn" class="secondary-btn">Clear all</button>
+      </div>
+      <div id="candidates-table"><p class="hint">No candidates ranked yet.</p></div>
+    </section>
+
+    <section class="card">
+      <h2>4. Ask about candidates</h2>
+      <div id="chat-window" class="chat-window"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="e.g. Who has experience with Django?" autocomplete="off">
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

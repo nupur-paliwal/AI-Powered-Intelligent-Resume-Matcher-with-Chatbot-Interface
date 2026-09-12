@@ -1,0 +1,19 @@
+Flask==3.0.3
+python-dotenv==1.0.1
+PyMuPDF==1.24.11
+pytesseract==0.3.13
+Pillow==10.4.0
+sentence-transformers==3.1.1
+requests==2.32.3
+numpy==1.26.4
+
+# LangChain: LLM provider abstraction (Gemini / Ollama) + RAG plumbing
+langchain==1.4.0
+langchain-core==1.6.3
+langchain-text-splitters==1.1.2
+langchain-google-genai==4.4.0
+langchain-ollama==1.1.0
+langchain-chroma==1.1.0
+langchain-huggingface==1.2.2
+chromadb==1.5.9
+pysqlite3-binary==0.5.4.post2  # works around Ubuntu 20.04's sqlite3 < 3.35 for chromadb
